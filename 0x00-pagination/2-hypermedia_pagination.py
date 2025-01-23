@@ -7,20 +7,18 @@ import csv
 import math
 from typing import List, Dict, Tuple
 
-
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     Calculate start and end indexes for a page.
-    
+
     Args:
         page (int): Current page number (1-indexed).
         page_size (int): Number of items per page.
-    
+
     Returns:
         Tuple[int, int]: A tuple containing start and end indexes.
     """
     return (page - 1) * page_size, page * page_size
-
 
 class Server:
     """
@@ -34,7 +32,7 @@ class Server:
     def dataset(self) -> List[List]:
         """
         Load and cache the dataset.
-        
+
         Returns:
             List[List]: Cached dataset of popular baby names.
         """
@@ -49,11 +47,11 @@ class Server:
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
         Get a single page of data.
-        
+
         Args:
             page (int): Current page number (1-indexed).
             page_size (int): Number of items per page.
-        
+
         Returns:
             List[List]: A list of rows corresponding to the requested page.
         """
@@ -70,11 +68,11 @@ class Server:
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """
         Get a page of data along with hypermedia pagination details.
-        
+
         Args:
             page (int): Current page number (1-indexed).
             page_size (int): Number of items per page.
-        
+
         Returns:
             Dict: A dictionary containing the current page, page size, 
                   dataset, next page, previous page, and total pages.
